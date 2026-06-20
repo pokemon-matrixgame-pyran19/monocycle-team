@@ -100,13 +100,13 @@ $$
 切り替わり（折れ目）は上の4つの $\sin$ がゼロになる所。$\bmod\ \pi$ で
 
 $$
-\theta\equiv\gamma_1\ (V_j\parallel v_1),\quad
-\theta\equiv\gamma_2\ (V_j\parallel v_2),\quad
-\theta\equiv\pi-\delta_3\ (v_3\,\text{が}\,V_i\,\text{軸を横切る}),\quad
-\theta\equiv\pi-\delta_4\ (v_4\,\text{が横切る})
+\theta\equiv\gamma_1,\quad
+\theta\equiv\gamma_2,\quad
+\theta\equiv\pi-\delta_3,\quad
+\theta\equiv\pi-\delta_4
 $$
 
-の4本（円周上では8本）。これが $\theta$ 円を弧に分け、各弧が前節の場合分けのちょうど1つに対応する。本質的に2択になるのは
+の4本（円周上では8本）で、前から順に $V_j$ が $v_1,v_2,\tilde v_3,\tilde v_4$ と平行になる角度（$\tilde v_3,\tilde v_4$ は $v_3,v_4$ を $y$ 軸で反転した向き、$\delta\to\pi-\delta$）。後半2本は「回った $v_3,v_4$ が $V_i$ 軸を横切る」瞬間と言っても同じだが、こう書くと4本すべてが「$V_j$ が4つの固定方向（上半面の $v_1,v_2$ と $y$ 軸反転した $\tilde v_3,\tilde v_4$）を通り過ぎる瞬間」にそろう。窓 $(\gamma_1,\gamma_2)\cap(\pi-\delta_4,\pi-\delta_3)$ も「$V_j$ が $v_1,v_2$ の間かつ $\tilde v_4,\tilde v_3$ の間」と読める。これが $\theta$ 円を弧に分け、各弧が前節の場合分けのちょうど1つに対応する。本質的に2択になるのは
 
 $$
 \boxed{\ \theta\bmod\pi\in(\gamma_1,\gamma_2)\cap(\pi-\delta_4,\ \pi-\delta_3)\ }
