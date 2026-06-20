@@ -27,7 +27,7 @@ $$
 g=\frac{1}{V_i\times V_j}=\frac{1}{R_iR_j\sin\theta}.
 $$
 
-$\csc\theta$ の形で、
+$\sin\theta$ の逆数の形で、
 
 - $\theta\in(0,\pi)$ で $g>0$（自分有利）、$\theta\in(\pi,2\pi)$ で $g<0$。
 - $|g|$ は $\theta=\tfrac{\pi}{2},\tfrac{3\pi}{2}$（$V_i\perp V_j$）で最小 $\dfrac{1}{R_iR_j}$。
@@ -63,4 +63,4 @@ $$
 \boxed{\ \theta\bmod\pi\in(\gamma_1,\gamma_2)\cap(\pi-\delta_4,\ \pi-\delta_3)\ }
 $$
 
-のときだけ。$\theta=\tfrac{\pi}{2}$（と $\tfrac{3\pi}{2}$）まわりの「窓」で、**窓の幅は両構築の広がり $\gamma_2-\gamma_1$ と $\delta_4-\delta_3$ の小さい方**で決まる。窓の外（特に $\theta\approx0,\pi$、$V_j\parallel\pm V_i$ 付近）は実質一択で、$\csc$ の発散はこの一択化でガードされる。
+のときだけ。$\theta=\tfrac{\pi}{2}$（と $\tfrac{3\pi}{2}$）まわりの「窓」で、**窓の幅は両構築の広がり $\gamma_2-\gamma_1$ と $\delta_4-\delta_3$ の小さい方**で決まる。窓の外（特に $\theta\approx0,\pi$、$V_j\parallel\pm V_i$ 付近）は実質一択で、$\sin\theta$ の逆数の発散はこの一択化でガードされる。
