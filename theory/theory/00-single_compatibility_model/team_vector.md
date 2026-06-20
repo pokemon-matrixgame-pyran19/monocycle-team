@@ -28,6 +28,10 @@ $$
 
 構築同士の相性が、単体相性ベクトル $v$ から作る1本のベクトル $V$ だけで書ける。
 
+## ラベルの自由度（1 ↔ 2 不変）
+
+$V_i$ は分母にも外積が入っているので、番号 $1\leftrightarrow2$ を入れ替えても分子 $v_1-v_2$ と分母 $v_1\times v_2$ がともに符号反転し、$V_i$ は向き・大きさとも不変。よって2匹のラベルは任意で、一般性を失わず $v_1\times v_2>0$（$v_1\to v_2$ が反時計回り）にとれる。以後はこの規約で揃える（相手も $v_3\times v_4>0$）。このとき $V_i\parallel v_1-v_2$、すなわち $v_2$ から $v_1$ へ向く向き。
+
 ## 行列の置き方の注意（b ↔ c）
 
 [two_choice_game.md](two_choice_game.md) の行列は $\begin{pmatrix}a&b\\c&d\end{pmatrix}$、本ページの構築行列は $\begin{pmatrix}a&c\\b&d\end{pmatrix}$ で、**$b$ と $c$ の位置が入れ替わっている**。2択の値 $\frac{ad-bc}{a+d-b-c}$ と2択条件は $b\leftrightarrow c$ で不変なのでそのまま使えるが、実質一択の4分岐は行列の「位置」で対応させ直す必要がある（→ [01-rotating_team/game_value.md](../01-rotating_team/game_value.md)）。
