@@ -141,3 +141,13 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+
+# macbook
+.DS_Store
+
+# Ai agent
+.gemini
+.claude
+.agent
+
