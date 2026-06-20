@@ -147,7 +147,8 @@ vite.config.ts.timestamp-*
 .DS_Store
 
 # Ai agent
-.gemini
-.claude
-.agent
+# .gemini
+# .claude
+# .agent
+# .codex
 
