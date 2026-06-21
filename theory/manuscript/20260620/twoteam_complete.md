@@ -188,16 +188,16 @@ $$
 
 ### 一択領域での値
 
-実質一択のときの $g$ は4つの単体相性のどれか。単位ベクトルなら $v_i\times v_k=\sin(\angle v_k-\angle v_i)$ なので、
+実質一択のときの $g$ は4つの単体相性のどれか。外積は $v_i\times v_k=|v_i||v_k|\sin(\angle v_k-\angle v_i)$ なので、各ベクトルの偏角（$v_1,v_2$ が $\gamma_1,\gamma_2$、$v_3,v_4$ が $\theta+\delta_3,\theta+\delta_4$）を入れると、
 
 $$
 \begin{aligned}
-a&=v_1\times v_3=\sin(\theta+\delta_3-\gamma_1), & b&=v_1\times v_4=\sin(\theta+\delta_4-\gamma_1),\\
-c&=v_2\times v_3=\sin(\theta+\delta_3-\gamma_2), & d&=v_2\times v_4=\sin(\theta+\delta_4-\gamma_2)
+a&=v_1\times v_3=|v_1||v_3|\sin(\theta+\delta_3-\gamma_1), & b&=v_1\times v_4=|v_1||v_4|\sin(\theta+\delta_4-\gamma_1),\\
+c&=v_2\times v_3=|v_2||v_3|\sin(\theta+\delta_3-\gamma_2), & d&=v_2\times v_4=|v_2||v_4|\sin(\theta+\delta_4-\gamma_2)
 \end{aligned}
 $$
 
-と、$\theta$ をずらした $\sin$ になります。いずれも有界（$|\cdot|\le1$）なので、これが「頭打ち」の正体です。
+と、$\theta$ をずらした $\sin$ に長さを掛けた形になります。いずれも有界（$|a|\le|v_1||v_3|$ など）なので、これが「頭打ち」の正体です。
 
 ### 遷移角と2択の窓
 
@@ -222,7 +222,7 @@ $$
 
 ### 適当な値を入れてみる
 
-両構築を「相方ベクトルに直交する向きを中心に対称」に置くと、$\gamma_{1,2}=90^\circ\mp\psi$、$\delta_{3,4}=90^\circ\mp\omega$ と書けます（$\psi,\omega$ は半開き角）。例として $\psi=30^\circ,\ \omega=50^\circ$（単体は単位ベクトル）を入れると、$R_iR_j=\dfrac{1}{\cos30^\circ\cos50^\circ}\approx1.796$、2択の窓は $(60^\circ,120^\circ)$ と $(240^\circ,300^\circ)$ になり、場合分けは次のようになります。
+両構築を「相方ベクトルに直交する向きを中心に対称」に置くと、$\gamma_{1,2}=90^\circ\mp\psi$、$\delta_{3,4}=90^\circ\mp\omega$ と書けます（$\psi,\omega$ は半開き角）。例として $\psi=30^\circ,\ \omega=50^\circ$ を入れ、さらに**単体を単位ベクトル**にとると（前係数 $|v_i||v_k|$ が $1$ になり、値が純 $\sin$ になります）、$R_iR_j=\dfrac{1}{\cos30^\circ\cos50^\circ}\approx1.796$、2択の窓は $(60^\circ,120^\circ)$ と $(240^\circ,300^\circ)$ になり、場合分けは次のようになります。
 
 | $\theta$ の範囲 | 領域 | ゲームの値 $g$ |
 |---|---|---|

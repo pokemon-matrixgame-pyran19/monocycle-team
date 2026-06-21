@@ -35,18 +35,18 @@ $\sin\theta$ の逆数の形で、
 
 ## 一択領域での値とその分岐
 
-実質一択の $g$ は4つの単体相性 $v_i\times v_k=|v_i||v_k|\sin(\angle v_k-\angle v_i)$ のいずれか。長さを $|v_i|=1$ に正規化すると
+実質一択の $g$ は4つの単体相性 $v_i\times v_k=|v_i||v_k|\sin(\angle v_k-\angle v_i)$ のいずれか。各ベクトルの偏角（$v_1,v_2$ が $\gamma_1,\gamma_2$、$v_3,v_4$ が $\theta+\delta_3,\theta+\delta_4$）を代入すると
 
 $$
 \begin{aligned}
-a&=\sin(\theta+\delta_3-\gamma_1), & c&=\sin(\theta+\delta_4-\gamma_1),\\
-b&=\sin(\theta+\delta_3-\gamma_2), & d&=\sin(\theta+\delta_4-\gamma_2).
+a&=|v_1||v_3|\sin(\theta+\delta_3-\gamma_1), & c&=|v_1||v_4|\sin(\theta+\delta_4-\gamma_1),\\
+b&=|v_2||v_3|\sin(\theta+\delta_3-\gamma_2), & d&=|v_2||v_4|\sin(\theta+\delta_4-\gamma_2).
 \end{aligned}
 $$
 
-いずれも有界（$|a|\le|v_1||v_3|$ 等、正規化すれば $|\cdot|\le1$）で、これが「頭打ち」の正体。
+いずれも有界（$|a|\le|v_1||v_3|$ 等）で、これが「頭打ち」の正体。
 
-**どの一択になるか**は、[game_value.md](game_value.md) の差の符号を $\theta$ まで降ろせば完全に決まる。$V_i\parallel+x$、$v_3,v_4$ の偏角が $\delta_3+\theta,\delta_4+\theta$、$V_j$ の偏角が $\theta$ なので（$V_i\times v_3=R_i\sin(\theta+\delta_3)$、$v_1\times V_j=R_j\sin(\theta-\gamma_1)$ 等）
+**どの一択になるか**は、[game_value.md](game_value.md) の差の符号を $\theta$ まで降ろせば完全に決まる。$V_i\parallel+x$、$v_3,v_4$ の偏角が $\delta_3+\theta,\delta_4+\theta$、$V_j$ の偏角が $\theta$ なので（$V_i\times v_3=R_i|v_3|\sin(\theta+\delta_3)$、$v_1\times V_j=|v_1|R_j\sin(\theta-\gamma_1)$ 等。長さは正なので符号には効かない）
 
 $$
 \mathrm{sgn}(a-b)=\mathrm{sgn}\sin(\theta+\delta_3),\quad
@@ -60,10 +60,10 @@ $$
 $$
 g=\begin{cases}
 \dfrac{1}{R_iR_j\sin\theta} & \sin(\theta+\delta_3)\sin(\theta+\delta_4)<0\ \text{かつ}\ \sin(\theta-\gamma_1)\sin(\theta-\gamma_2)<0\\[2mm]
-a=\sin(\theta+\delta_3-\gamma_1) & \sin(\theta+\delta_3)>0\ \text{かつ}\ \sin(\theta-\gamma_1)<0\\
-b=\sin(\theta+\delta_3-\gamma_2) & \sin(\theta+\delta_3)<0\ \text{かつ}\ \sin(\theta-\gamma_2)<0\\
-c=\sin(\theta+\delta_4-\gamma_1) & \sin(\theta+\delta_4)>0\ \text{かつ}\ \sin(\theta-\gamma_1)>0\\
-d=\sin(\theta+\delta_4-\gamma_2) & \sin(\theta+\delta_4)<0\ \text{かつ}\ \sin(\theta-\gamma_2)>0
+a=|v_1||v_3|\sin(\theta+\delta_3-\gamma_1) & \sin(\theta+\delta_3)>0\ \text{かつ}\ \sin(\theta-\gamma_1)<0\\
+b=|v_2||v_3|\sin(\theta+\delta_3-\gamma_2) & \sin(\theta+\delta_3)<0\ \text{かつ}\ \sin(\theta-\gamma_2)<0\\
+c=|v_1||v_4|\sin(\theta+\delta_4-\gamma_1) & \sin(\theta+\delta_4)>0\ \text{かつ}\ \sin(\theta-\gamma_1)>0\\
+d=|v_2||v_4|\sin(\theta+\delta_4-\gamma_2) & \sin(\theta+\delta_4)<0\ \text{かつ}\ \sin(\theta-\gamma_2)>0
 \end{cases}
 $$
 

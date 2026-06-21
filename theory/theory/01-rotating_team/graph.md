@@ -12,7 +12,7 @@
 
 両構築を「相方ベクトルに直交する向きを中心に対称」に置くと $\gamma_{1,2}=90^\circ\mp\psi$、$\delta_{3,4}=90^\circ\mp\omega$（$\psi,\omega$ は半開き角）。
 
-$\psi=30^\circ,\ \omega=50^\circ$（単体は単位ベクトル）のとき $R_iR_j=\dfrac{1}{\cos30^\circ\cos50^\circ}\approx1.796$、2択の窓は $(60^\circ,120^\circ)$ と $(240^\circ,300^\circ)$。
+$\psi=30^\circ,\ \omega=50^\circ$ で単体を単位ベクトルにとる（前係数 $|v_i||v_k|$ が落ちて値が純 $\sin$ になる）と $R_iR_j=\dfrac{1}{\cos30^\circ\cos50^\circ}\approx1.796$、2択の窓は $(60^\circ,120^\circ)$ と $(240^\circ,300^\circ)$。
 
 | $\theta$ の範囲 | 領域 | ゲームの値 $g$ |
 |---|---|---|
