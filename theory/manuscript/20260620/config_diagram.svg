@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 620 500" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" role="img" aria-label="Vi を x 軸正方向に固定し、相手の Vj・v3・v4 を角度 θ だけ回転させた配置の模式図">
+  <defs>
+    <marker id="ah-blue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#2563eb"/></marker>
+    <marker id="ah-orange" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#ea580c"/></marker>
+    <marker id="ah-gray" markerWidth="8" markerHeight="8" refX="6.5" refY="2.6" orient="auto"><path d="M0,0 L6.5,2.6 L0,5.2 Z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect x="0" y="0" width="620" height="500" fill="#ffffff"/>
+
+  <!-- 回転の注記 -->
+  <text x="310" y="34" text-anchor="middle" font-size="14" fill="#6b7280">相手側（V<tspan font-size="10" dy="3">j</tspan><tspan dy="-3">, v</tspan><tspan font-size="10" dy="3">3</tspan><tspan dy="-3">, v</tspan><tspan font-size="10" dy="3">4</tspan><tspan dy="-3">）をまとめて θ だけ回す／自分側は固定</tspan></text>
+
+  <!-- 座標軸 -->
+  <line x1="120" y1="290" x2="486" y2="290" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#ah-gray)"/>
+  <line x1="300" y1="372" x2="300" y2="150" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#ah-gray)"/>
+  <text x="490" y="306" font-size="12" fill="#94a3b8">x</text>
+  <text x="308" y="156" font-size="12" fill="#94a3b8">y</text>
+  <circle cx="300" cy="290" r="3" fill="#334155"/>
+  <text x="284" y="306" font-size="12" fill="#334155">O</text>
+
+  <!-- θ の回転弧 -->
+  <path d="M378,290 A78,78 0 0 0 261.0,222.5" fill="none" stroke="#ea580c" stroke-width="1.6" marker-end="url(#ah-orange)"/>
+  <text x="350" y="216" font-size="15" fill="#ea580c">θ</text>
+  <!-- 相手三つ組が回ることを示す小さなカール -->
+  <path d="M235,150 A16,16 0 0 0 213,156" fill="none" stroke="#ea580c" stroke-width="1.4" marker-end="url(#ah-orange)"/>
+
+  <!-- ===== 自分の構築（固定・青） ===== -->
+  <!-- 高さ 1/Ri の水平な補助線と縦の目盛り -->
+  <line x1="314.99" y1="205" x2="421.4" y2="205" stroke="#2563eb" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.55"/>
+  <line x1="314.99" y1="205" x2="314.99" y2="290" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 3" opacity="0.55"/>
+  <text x="320" y="252" font-size="12" fill="#2563eb">1/R<tspan font-size="9" dy="3">i</tspan></text>
+  <!-- Vi, v1, v2 -->
+  <line x1="300" y1="290" x2="450" y2="290" stroke="#2563eb" stroke-width="4" marker-end="url(#ah-blue)"/>
+  <line x1="300" y1="290" x2="421.4" y2="205" stroke="#2563eb" stroke-width="2.4" marker-end="url(#ah-blue)"/>
+  <line x1="300" y1="290" x2="314.99" y2="205" stroke="#2563eb" stroke-width="2.4" marker-end="url(#ah-blue)"/>
+  <text x="455" y="285" font-size="15" font-style="italic" fill="#2563eb">V<tspan font-size="10" dy="3" font-style="normal">i</tspan></text>
+  <text x="426" y="200" font-size="15" font-style="italic" fill="#2563eb">v<tspan font-size="10" dy="3" font-style="normal">1</tspan></text>
+  <text x="296" y="196" font-size="15" font-style="italic" fill="#2563eb" text-anchor="end">v<tspan font-size="10" dy="3" font-style="normal">2</tspan></text>
+  <!-- γ1, γ2 の角 -->
+  <path d="M342,290 A42,42 0 0 0 334.4,265.9" fill="none" stroke="#2563eb" stroke-width="1" opacity="0.7"/>
+  <path d="M360,290 A60,60 0 0 0 310.4,230.9" fill="none" stroke="#2563eb" stroke-width="1" opacity="0.7"/>
+  <text x="345" y="279" font-size="12" fill="#2563eb">γ<tspan font-size="9" dy="3">1</tspan></text>
+  <text x="349" y="250" font-size="12" fill="#2563eb">γ<tspan font-size="9" dy="3">2</tspan></text>
+
+  <!-- ===== 相手の構築（θ 回転・橙） ===== -->
+  <!-- 高さ 1/Rj の補助線（Vj に平行）と垂線 -->
+  <line x1="178.76" y1="220" x2="236.29" y2="319.71" stroke="#ea580c" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.55"/>
+  <line x1="300" y1="290" x2="239.4" y2="325" stroke="#ea580c" stroke-width="1" stroke-dasharray="3 3" opacity="0.55"/>
+  <text x="246" y="318" font-size="12" fill="#ea580c">1/R<tspan font-size="9" dy="3">j</tspan></text>
+  <!-- Vj, v3, v4 -->
+  <line x1="300" y1="290" x2="225" y2="160.1" stroke="#ea580c" stroke-width="4" marker-end="url(#ah-orange)"/>
+  <line x1="300" y1="290" x2="178.76" y2="220" stroke="#ea580c" stroke-width="2.4" marker-end="url(#ah-orange)"/>
+  <line x1="300" y1="290" x2="236.29" y2="319.71" stroke="#ea580c" stroke-width="2.4" marker-end="url(#ah-orange)"/>
+  <text x="206" y="150" font-size="15" font-style="italic" fill="#ea580c" text-anchor="end">V<tspan font-size="10" dy="3" font-style="normal">j</tspan></text>
+  <text x="164" y="216" font-size="15" font-style="italic" fill="#ea580c" text-anchor="end">v<tspan font-size="10" dy="3" font-style="normal">3</tspan></text>
+  <text x="240" y="334" font-size="15" font-style="italic" fill="#ea580c">v<tspan font-size="10" dy="3" font-style="normal">4</tspan></text>
+  <!-- δ3, δ4 の角（Vj から測る） -->
+  <path d="M278.0,251.9 A44,44 0 0 0 261.9,268.0" fill="none" stroke="#ea580c" stroke-width="1" opacity="0.7"/>
+  <path d="M268.0,234.6 A64,64 0 0 0 242.0,317.1" fill="none" stroke="#ea580c" stroke-width="1" opacity="0.7"/>
+  <text x="258" y="252" font-size="12" fill="#ea580c">δ<tspan font-size="9" dy="3">3</tspan></text>
+  <text x="222" y="270" font-size="12" fill="#ea580c">δ<tspan font-size="9" dy="3">4</tspan></text>
+
+  <!-- 凡例 -->
+  <line x1="150" y1="452" x2="186" y2="452" stroke="#2563eb" stroke-width="3.5" marker-end="url(#ah-blue)"/>
+  <text x="194" y="457" font-size="13" fill="#334155">自分の構築（固定）</text>
+  <line x1="360" y1="452" x2="396" y2="452" stroke="#ea580c" stroke-width="3.5" marker-end="url(#ah-orange)"/>
+  <text x="404" y="457" font-size="13" fill="#334155">相手の構築（θ 回転）</text>
+</svg>
