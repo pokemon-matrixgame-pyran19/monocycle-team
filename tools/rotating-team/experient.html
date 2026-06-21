@@ -1,15 +1,19 @@
 <div id="wrap" style="font-family: var(--font-sans, system-ui, sans-serif); color: var(--text-primary, #1a1a1a);">
-  <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:center; margin-bottom:12px; font-size:14px;">
-    <label>自分の広がり ψ: <b><span id="psiVal">30</span>°</b><br>
-      <input id="psi" type="range" min="5" max="85" value="30" step="1" style="width:160px;">
-      <input id="r1" type="range" min="0.1" max="3" value="1" step="0.1" style="width:160px;">
-      <input id="r2" type="range" min="0.1" max="3" value="1" step="0.1" style="width:160px;">
-    </label>
-    <label>相手の広がり ω: <b><span id="omeVal">50</span>°</b><br>
-      <input id="ome" type="range" min="5" max="85" value="50" step="1" style="width:160px;">
-      <input id="r3" type="range" min="0.1" max="3" value="1" step="0.1" style="width:160px;">
-      <input id="r4" type="range" min="0.1" max="3" value="1" step="0.1" style="width:160px;">
-    </label>
+  <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start; margin-bottom:12px; font-size:14px;">
+    <div>自分　γ₁: <b><span id="g1Val">60</span>°</b>　γ₂: <b><span id="g2Val">120</span>°</b><br>
+      <input id="g1" type="range" min="5" max="175" value="60" step="1" style="width:120px;">
+      <input id="g2" type="range" min="5" max="175" value="120" step="1" style="width:120px;"><br>
+      <span style="font-size:12.5px;">長さ r₁,r₂:</span>
+      <input id="r1" type="range" min="0.1" max="3" value="1" step="0.1" style="width:120px;">
+      <input id="r2" type="range" min="0.1" max="3" value="1" step="0.1" style="width:120px;">
+    </div>
+    <div>相手　δ₃: <b><span id="d3Val">40</span>°</b>　δ₄: <b><span id="d4Val">140</span>°</b><br>
+      <input id="d3" type="range" min="5" max="175" value="40" step="1" style="width:120px;">
+      <input id="d4" type="range" min="5" max="175" value="140" step="1" style="width:120px;"><br>
+      <span style="font-size:12.5px;">長さ r₃,r₄:</span>
+      <input id="r3" type="range" min="0.1" max="3" value="1" step="0.1" style="width:120px;">
+      <input id="r4" type="range" min="0.1" max="3" value="1" step="0.1" style="width:120px;">
+    </div>
     <div style="font-size:13px; line-height:1.5;">
       |V_i|=<span id="Ri"></span>, |V_j|=<span id="Rj"></span><br>
       2択の窓: <span id="win"></span>
@@ -30,16 +34,26 @@
   const grid=(cs.getPropertyValue('--border')||'#ddd').trim()||'#ddd';
   const txt=(cs.getPropertyValue('--text-primary')||'#1a1a1a').trim()||'#1a1a1a';
   const cross=(ax,ay,bx,by)=>ax*by-ay*bx;
-  function gval(th, psi, ome,r1, r2,r3,r4){
-    const v1=[r1*Math.cos((90-psi)*d2r),r1*Math.sin((90-psi)*d2r)];
-    const v2=[r2*Math.cos((90+psi)*d2r),r2*Math.sin((90+psi)*d2r)];
-    const a3=90-ome+th, a4=90+ome+th;
-    const v3=[r3*Math.cos(a3*d2r),r3*Math.sin(a3*d2r)];
-    const v4=[r4*Math.cos(a4*d2r),r4*Math.sin(a4*d2r)];
-    const a=cross(v1[0],v1[1],v3[0],v3[1]);
-    const b=cross(v2[0],v2[1],v3[0],v3[1]);
-    const c=cross(v1[0],v1[1],v4[0],v4[1]);
-    const d=cross(v2[0],v2[1],v4[0],v4[1]);
+  // θ だけ回した4ベクトル（自分の v1,v2 は固定、相手の v3,v4 を θ 回転）
+  function vecs(th, g1,g2,d3,d4, r1,r2,r3,r4){
+    return {
+      v1:[r1*Math.cos(g1*d2r), r1*Math.sin(g1*d2r)],
+      v2:[r2*Math.cos(g2*d2r), r2*Math.sin(g2*d2r)],
+      v3:[r3*Math.cos((d3+th)*d2r), r3*Math.sin((d3+th)*d2r)],
+      v4:[r4*Math.cos((d4+th)*d2r), r4*Math.sin((d4+th)*d2r)]
+    };
+  }
+  // 構築ベクトルの大きさ |V| = |v_a - v_b| / |v_a × v_b|
+  function Rof(va,vb){
+    const cr=cross(va[0],va[1],vb[0],vb[1]);
+    return Math.hypot(va[0]-vb[0], va[1]-vb[1])/Math.abs(cr);
+  }
+  function gval(th, g1,g2,d3,d4, r1,r2,r3,r4){
+    const V=vecs(th, g1,g2,d3,d4, r1,r2,r3,r4);
+    const a=cross(V.v1[0],V.v1[1],V.v3[0],V.v3[1]);
+    const b=cross(V.v2[0],V.v2[1],V.v3[0],V.v3[1]);
+    const c=cross(V.v1[0],V.v1[1],V.v4[0],V.v4[1]);
+    const d=cross(V.v2[0],V.v2[1],V.v4[0],V.v4[1]);
     const maximin=Math.max(Math.min(a,c),Math.min(b,d));
     const minimax=Math.min(Math.max(a,b),Math.max(c,d));
     let g, two;
@@ -53,22 +67,37 @@
   const X=th=> x0+(th/360)*(x1-x0);
   const Y=g=> { let gg=Math.max(-ymax,Math.min(ymax,g)); return y0+(gg-(-ymax))/(ymax-(-ymax))*(y1-y0); };
   function render(){
-    const psi=+document.getElementById('psi').value;
-    const ome=+document.getElementById('ome').value;
+    const g1=+document.getElementById('g1').value;
+    const g2=+document.getElementById('g2').value;
+    const d3=+document.getElementById('d3').value;
+    const d4=+document.getElementById('d4').value;
     const r1=+document.getElementById('r1').value;
     const r2=+document.getElementById('r2').value;
     const r3=+document.getElementById('r3').value;
     const r4=+document.getElementById('r4').value;
-    document.getElementById('psiVal').textContent=psi;
-    document.getElementById('omeVal').textContent=ome;
-    const Ri=1/Math.cos(psi*d2r), Rj=1/Math.cos(ome*d2r);
+    document.getElementById('g1Val').textContent=g1;
+    document.getElementById('g2Val').textContent=g2;
+    document.getElementById('d3Val').textContent=d3;
+    document.getElementById('d4Val').textContent=d4;
+    // R は4ベクトルから直接（V_j は剛体回転なので θ=0 で評価して一定）
+    const V0=vecs(0, g1,g2,d3,d4, r1,r2,r3,r4);
+    const Ri=Rof(V0.v1,V0.v2), Rj=Rof(V0.v3,V0.v4);
     document.getElementById('Ri').textContent=Ri.toFixed(3);
     document.getElementById('Rj').textContent=Rj.toFixed(3);
-    const m=Math.min(psi,ome);
-    document.getElementById('win').textContent='('+(90-m)+'°, '+(90+m)+'°) と ('+(270-m)+'°, '+(270+m)+'°)';
     // sample
     const pts=[];
-    for(let th=0; th<=360; th+=0.5){ const r=gval(th,psi,ome,r1,r2,r3,r4); pts.push({th, g:r.g, two:r.two}); }
+    for(let th=0; th<=360; th+=0.5){ const r=gval(th,g1,g2,d3,d4,r1,r2,r3,r4); pts.push({th, g:r.g, two:r.two}); }
+    // 2択の帯を実際のレジームから数値検出（境界はサンプル間の中点）
+    const bands=[]; let bs=null;
+    for(let i=0;i<pts.length;i++){
+      const prev=i>0?pts[i-1]:null;
+      if(pts[i].two && bs===null) bs = prev ? (prev.th+pts[i].th)/2 : pts[i].th;
+      if(!pts[i].two && bs!==null){ bands.push([bs,(prev.th+pts[i].th)/2]); bs=null; }
+    }
+    if(bs!==null) bands.push([bs, pts[pts.length-1].th]);
+    document.getElementById('win').textContent =
+      bands.length ? bands.map(b=>'('+b[0].toFixed(0)+'°, '+b[1].toFixed(0)+'°)').join(' と ')
+                   : 'なし（全域で実質一択）';
     let svg='';
     // axes box
     svg+=`<rect x="${x0}" y="${y1}" width="${x1-x0}" height="${y0-y1}" fill="none" stroke="${grid}"/>`;
@@ -87,8 +116,7 @@
     svg+=`<text x="${(x0+x1)/2}" y="${H-4}" text-anchor="middle" font-size="11.5" fill="${txt}">θ（V_j の向き）</text>`;
     svg+=`<text x="14" y="${(y0+y1)/2}" text-anchor="middle" font-size="11.5" fill="${txt}" transform="rotate(-90,14,${(y0+y1)/2})">ゲームの値 g</text>`;
     // shade two-choice bands
-    const mm=Math.min(psi,ome);
-    [[90-mm,90+mm],[270-mm,270+mm]].forEach(b=>{
+    bands.forEach(b=>{
       const xa=X(b[0]), xb=X(b[1]);
       svg+=`<rect x="${xa}" y="${y1}" width="${xb-xa}" height="${y0-y1}" fill="${accent}" opacity="0.07"/>`;
     });
@@ -109,12 +137,8 @@
     flush();
     document.getElementById('plot').innerHTML=svg;
   }
-  document.getElementById('psi').addEventListener('input',render);
-  document.getElementById('ome').addEventListener('input',render);
-  document.getElementById('r1').addEventListener('input',render);
-  document.getElementById('r2').addEventListener('input',render);
-  document.getElementById('r3').addEventListener('input',render);
-  document.getElementById('r4').addEventListener('input',render);
+  ['g1','g2','d3','d4','r1','r2','r3','r4'].forEach(id=>
+    document.getElementById(id).addEventListener('input',render));
   render();
 })();
 </script>
