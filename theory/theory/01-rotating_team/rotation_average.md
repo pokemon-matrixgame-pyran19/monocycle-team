@@ -1,0 +1,148 @@
+# 全配置パターンの $g(\theta)$ と回転平均
+
+[rotation.md](rotation.md) で $g$ を $\theta$ の関数として場合分けした。ここでは **$\gamma_1,\gamma_2,\delta_3,\delta_4$ のあらゆる大小関係**について $g(\theta)$ を一周ぶん明示し、さらに $\theta$ を $0\to2\pi$ で積分した**回転平均**を閉じた式で与える。
+
+記号は [rotation.md](rotation.md) に合わせる。単体値と2択値は
+
+$$
+\begin{aligned}
+a&=|v_1||v_3|\sin(\theta+\delta_3-\gamma_1), & c&=|v_1||v_4|\sin(\theta+\delta_4-\gamma_1),\\
+b&=|v_2||v_3|\sin(\theta+\delta_3-\gamma_2), & d&=|v_2||v_4|\sin(\theta+\delta_4-\gamma_2),
+\end{aligned}
+\qquad
+\text{2択}=\frac{1}{R_iR_j\sin\theta}.
+$$
+
+配置の縛り（[rotation.md](rotation.md)）：$v_1,v_2$ は高さ $1/R_i$ の上半面に偏角 $\gamma_1<\gamma_2\in(0,\pi)$、$v_3,v_4$ は高さ $1/R_j$ で $\theta=0$ 基準の偏角 $\delta_3<\delta_4\in(0,\pi)$。長さは同高さ制約 $|v_1|\sin\gamma_1=|v_2|\sin\gamma_2=1/R_i$、$|v_3|\sin\delta_3=|v_4|\sin\delta_4=1/R_j$ を満たす。
+
+## 構造を決めるのは2区間の相対位置
+
+遷移線は $\theta\equiv\gamma_1,\gamma_2,\pi-\delta_3,\pi-\delta_4\ (\bmod\pi)$ の4本だけ（[rotation.md](rotation.md)）。$\gamma_1,\gamma_2,\pi-\delta_4,\pi-\delta_3$ はすべて $(0,\pi)$ に入り、後半 $(\pi,2\pi)$ には同じ点の $+\pi$ コピーが並ぶ。したがって **$g(\theta)$ のグラフの形（どの弧がどの分岐か）は、$(0,\pi)$ 上の2つの区間**
+
+$$
+I_\gamma=(\gamma_1,\ \gamma_2),\qquad
+\tilde I_\delta=(\pi-\delta_4,\ \pi-\delta_3)
+$$
+
+**の相対位置だけで決まる**（長さ $|v_i|$ は弧の区切りには効かず、値の高さ $L=|v_a||v_b|$ にだけ効く）。$\tilde I_\delta$ は $v_3,v_4$ を $y$ 軸反転した $\tilde v_3,\tilde v_4$ の偏角区間で、**正規化された対称配置 $\delta_3+\delta_4=\pi$ のときちょうど $\tilde I_\delta=(\delta_3,\delta_4)$**（$\pi-\delta_4=\delta_3,\ \pi-\delta_3=\delta_4$）。この場合に限り「$\gamma$ と $\delta$ の大小」がそのまま構造を決め、一般には $\delta\to\pi-\delta$ を通して読む。
+
+$\gamma_1<\gamma_2$、$\delta_3<\delta_4$ は固定なので、2区間の並びは次の **3パターン＋敵味方入れ替え（$\gamma\leftrightarrow\delta$）の3つ＝6通り**で尽きる。
+
+| | 区間の関係 | 角度条件 | 対称配置での読み |
+|---|---|---|---|
+| **P1 離** | $I_\gamma$ が左に分離 | $\gamma_2<\pi-\delta_4$ | $\gamma_1<\gamma_2<\delta_3<\delta_4$ |
+| **P2 重** | 左で重なる | $\gamma_1<\pi-\delta_4<\gamma_2<\pi-\delta_3$ | $\gamma_1<\delta_3<\gamma_2<\delta_4$ |
+| **P3 包** | $\tilde I_\delta\subset I_\gamma$ | $\gamma_1<\pi-\delta_4<\pi-\delta_3<\gamma_2$ | $\gamma_1<\delta_3<\delta_4<\gamma_2$ |
+
+残り3つ（$I_\gamma$ が右／右重なり／$I_\gamma\subset\tilde I_\delta$）は**敵味方の入れ替え**で得られる。自分と相手を交換すると役割が入れ替わって $V_i\leftrightarrow V_j$、角度は $\gamma\leftrightarrow\delta$、$\theta\to-\theta$、値は符号反転するので
+
+$$
+\boxed{\ g_{\text{swap}}(\theta)=-\,g(-\theta)\quad(\gamma\leftrightarrow\delta\ \text{で入れ替え})\ }
+$$
+
+で P1〜P3 から移れる。以下は P1〜P3 を書けば全パターンを尽くす。窓（本質的に2択の区間）は $I_\gamma\cap\tilde I_\delta$ で、**幅 $\min(\gamma_2,\pi-\delta_3)-\max(\gamma_1,\pi-\delta_4)$**（P1 では非正＝窓なし）。
+
+## 各パターンの $g(\theta)$
+
+下表は一周 $\theta\in[0,2\pi)$ を遷移角で区切ったもの（$-\delta_3\equiv2\pi-\delta_3$）。隣り合う弧の境目ですべて連続（境界値が一致することは確認済み）。
+
+### P1：離（$\gamma_2<\pi-\delta_4$、窓なし＝全域一択）
+
+| $\theta$ の範囲 | $g$ |
+|---|---|
+| $(-\delta_3,\ \gamma_1)$ | $a$ |
+| $(\gamma_1,\ \pi-\delta_4)$ | $c$ |
+| $(\pi-\delta_4,\ \pi+\gamma_2)$ | $d$ |
+| $(\pi+\gamma_2,\ 2\pi-\delta_3)$ | $b$ |
+
+2区間が離れていて読み合いの窓が開かず、一周まるごと実質一択。
+
+### P2：重（$\gamma_1<\pi-\delta_4<\gamma_2<\pi-\delta_3$）
+
+| $\theta$ の範囲 | $g$ |
+|---|---|
+| $(-\delta_3,\ \gamma_1)$ | $a$ |
+| $(\gamma_1,\ \pi-\delta_4)$ | $c$ |
+| $(\pi-\delta_4,\ \gamma_2)$ | **2択** $\dfrac{1}{R_iR_j\sin\theta}$ |
+| $(\gamma_2,\ 2\pi-\delta_4)$ | $d$ |
+| $(2\pi-\delta_4,\ \pi+\gamma_2)$ | **2択** |
+| $(\pi+\gamma_2,\ 2\pi-\delta_3)$ | $b$ |
+
+窓は $(\pi-\delta_4,\ \gamma_2)$ と、その $\pi$ 反対側 $(2\pi-\delta_4,\ \pi+\gamma_2)$。幅はともに $\gamma_2-(\pi-\delta_4)=\gamma_2+\delta_4-\pi$。
+
+### P3：包（$\gamma_1<\pi-\delta_4<\pi-\delta_3<\gamma_2$）
+
+| $\theta$ の範囲 | $g$ |
+|---|---|
+| $(-\delta_3,\ \gamma_1)$ | $a$ |
+| $(\gamma_1,\ \pi-\delta_4)$ | $c$ |
+| $(\pi-\delta_4,\ \pi-\delta_3)$ | **2択** $\dfrac{1}{R_iR_j\sin\theta}$ |
+| $(\pi-\delta_3,\ \gamma_2)$ | $b$ |
+| $(\gamma_2,\ 2\pi-\delta_4)$ | $d$ |
+| $(2\pi-\delta_4,\ 2\pi-\delta_3)$ | **2択** |
+
+窓は $\tilde I_\delta=(\pi-\delta_4,\ \pi-\delta_3)$ 全体と、その反対側 $(2\pi-\delta_4,\ 2\pi-\delta_3)$。幅はともに $\delta_4-\delta_3$。
+
+> [graph.md](graph.md) の具体例（$\gamma=60^\circ,120^\circ$、$\delta=40^\circ,140^\circ$、長さ $1$）は $\delta_3+\delta_4=\pi$ の対称配置で $\tilde I_\delta=(40^\circ,140^\circ)\supset I_\gamma=(60^\circ,120^\circ)$、すなわち**P3 の敵味方入れ替え（$I_\gamma\subset\tilde I_\delta$）**にあたる。`tools/rotating-team/` の数値計算で P1〜P3 の弧の区切りと窓位置を機械精度で確認済み。
+
+## 回転平均
+
+一周の積分 $\displaystyle\int_0^{2\pi}g\,d\theta$ を区分ごとに足す。単体の弧は $\int L\sin(\theta+\varphi)\,d\theta=-L\cos(\theta+\varphi)$ で、各分岐の寄与は（**3パターンとも同じ値**になる）
+
+$$
+\begin{aligned}
+\int_a &= |v_1||v_3|(\cos\gamma_1-\cos\delta_3), &
+\int_c &= |v_1||v_4|(\cos\gamma_1+\cos\delta_4),\\
+\int_b &= -|v_2||v_3|(\cos\gamma_2+\cos\delta_3), &
+\int_d &= |v_2||v_4|(\cos\delta_4-\cos\gamma_2).
+\end{aligned}
+$$
+
+### 2択の窓は回転平均に寄与しない
+
+窓は常に**2つが $\pi$ 反対側にペアで現れ**（P2・P3 の表の通り、第2窓＝第1窓 $+\pi$）、$\dfrac{1}{\sin(\theta+\pi)}=-\dfrac{1}{\sin\theta}$ なので
+
+$$
+\int_{\text{窓2}}\frac{d\theta}{R_iR_j\sin\theta}
+=-\int_{\text{窓1}}\frac{d\theta}{R_iR_j\sin\theta},
+$$
+
+**2つの窓の寄与は厳密に相殺して合計ゼロ**。一周平均には一択の弧しか効かない。
+
+> 片側の窓そのものの値（$\int1/\sin\theta=\ln|\tan(\theta/2)|$）は、参考までに
+> $$\int_{\text{窓1}}\!\!\frac{d\theta}{R_iR_j\sin\theta}=\frac{1}{R_iR_j}\Big[\ln\tan\tfrac{\theta}{2}\Big]_{\pi-\delta_4}^{\,\min(\gamma_2,\pi-\delta_3)}=\begin{cases}\dfrac{1}{R_iR_j}\ln\!\big(\tan\tfrac{\gamma_2}{2}\tan\tfrac{\delta_4}{2}\big)&(\text{P2})\\[2mm]\dfrac{1}{R_iR_j}\ln\dfrac{\tan(\delta_4/2)}{\tan(\delta_3/2)}&(\text{P3})\end{cases}$$
+> （上半面 $\theta\in(0,\pi)$ なので正）。これは半周 $\int_0^\pi g\,d\theta$ には残り、上下の非対称さ＝「有利側に寄ったときの読み合いの取り分」を表す。一周では下半面の窓と打ち消し合う。
+
+### 一周平均の閉じた式（全6パターン共通）
+
+4つの一択寄与を足すと、$|v_a|\cos(\text{偏角})=$（その単体ベクトルの $V_i$ 軸方向成分 $x$）にまとまり、
+
+$$
+\boxed{\;\int_0^{2\pi}\! g\,d\theta
+=(|v_3|+|v_4|)\,|v_1-v_2|\;-\;(|v_1|+|v_2|)\,|v_3-v_4|\;}
+$$
+
+$$
+\langle g\rangle=\frac{1}{2\pi}\int_0^{2\pi}\! g\,d\theta
+=\frac{1}{2\pi}\Big[(|v_3|+|v_4|)\,|v_1-v_2|-(|v_1|+|v_2|)\,|v_3-v_4|\Big].
+$$
+
+同じものを成分・外積で書くと（$v_1-v_2\parallel V_i$、$v_3-v_4\parallel V_j$ なので $|v_1-v_2|=R_i(v_1\times v_2)$、$|v_3-v_4|=R_j(v_3\times v_4)$）
+
+$$
+\int_0^{2\pi}\! g\,d\theta
+=(|v_3|+|v_4|)\,R_i(v_1\times v_2)-(|v_1|+|v_2|)\,R_j(v_3\times v_4)
+=(|v_3|+|v_4|)(x_1-x_2)+(|v_1|+|v_2|)(x_4-x_3),
+$$
+
+ここで $x_k=|v_k|\cos(\text{偏角})$ は $V_i$ 軸（$+x$）方向の成分（$x_1-x_2=|v_1|\cos\gamma_1-|v_2|\cos\gamma_2>0$、$x_4-x_3=|v_4|\cos\delta_4-|v_3|\cos\delta_3<0$）。長さ・角度のあらゆる組み合わせ（同高さ制約のもと）について数値積分と機械精度で一致することを確認済み。
+
+### 読み取り
+
+- **回転平均は配置パターンに依らず1本の式**。2択の窓がどこに何個開こうと、平均には**一択の弧だけ**が効く（窓は上下で相殺）。[graph.md](graph.md) の「二択部分は上に偏る寄与をほとんど持たない」という観察の、積分での裏付け。
+- 平均が正（＝一周ならして自分有利）になるのは
+$$
+(|v_3|+|v_4|)\,|v_1-v_2|>(|v_1|+|v_2|)\,|v_3-v_4|.
+$$
+**自分の相方差 $|v_1-v_2|$ が大きく（＝$V_i$ 方向に広く張る）、相手の相方差 $|v_3-v_4|$ が小さいほど**平均有利。各係数は**相手・自分の長さの和**で重み付く。長さ（相性の影響の受けやすさ $|v|$）が大きいほど相手にとっては「自分の広がりを増幅する重し」として効く、という非対称な効き方になっている。
+- 相手を一周させた“地ならし”では、$V$ の向きの差（噛み合い運）は均されて消え、**$V$ の広がり（相方の引き離し）と単体の長さ**という配置の素性だけが残る。これは次段（構築同士のナッシュ均衡）で「平均的に強い構築」を測る素直な指標になる。
