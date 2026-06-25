@@ -10,7 +10,7 @@
 - [rotation.md](rotation.md) — 相手構築を回したときの配置の縛りと、ゲームの値の角度依存（2択では $\sin\theta$ の逆数、一択では $\sin$ の頭打ち、遷移角と2択の窓）。
 - [graph.md](graph.md) — グラフの特徴（折れ目・極小・頭打ち）と対称配置での具体例。
 - [rotation_average.md](rotation_average.md) — $\gamma,\delta$ の全大小関係（3パターン＋敵味方入れ替え）での $g(\theta)$ の明示と、一周積分＝回転平均の閉じた式（2択の窓は相殺して平均に効かない）。
-- [graph_shapes.md](graph_shapes.md) — 各領域の値 $a,b,c,d$・2択を $S,\eta,\alpha$ で書き直し（$\frac{S_iS_j}{4}$ が共通スケール）、P1/P2/P3 のグラフ形状と「$S$＝縦拡大／$\eta$＝窓を開け谷を浅く／$\alpha$＝高さ偏り・傾き（平均に効かない）」を式から読む。
+- [graph_shapes.md](graph_shapes.md) — 各領域の値 $a,b,c,d$・2択を $S,\eta,\alpha$ で書き直し（$\frac{S_iS_j}{4}$ が共通スケール）、P1/P2/P3 のグラフ形状と「$S$＝縦拡大／$\eta$＝不利側の一択ローブを $0$ へ持ち上げ上下非対称化（2択は痩せて平均に効かない）／$\alpha$＝高さ偏り・傾き（平均に効かない）」を式から読む。
 
 ## 要点
 
