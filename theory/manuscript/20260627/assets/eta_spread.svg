@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="280" viewBox="0 0 640 280" font-family="sans-serif">
+  <style>
+    .v{stroke:#1f6fd6;stroke-width:3;marker-end:url(#a)}
+    .d{stroke:#e07b00;stroke-width:3;stroke-dasharray:6 4;marker-end:url(#b)}
+    .lab{font-size:13px;fill:#333}
+    .ttl{font-size:14px;font-weight:bold;fill:#222}
+    .sm{font-size:12px;fill:#666}
+    .ax{stroke:#bbb;stroke-width:1}
+  </style>
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#1f6fd6"/>
+    </marker>
+    <marker id="b" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#e07b00"/>
+    </marker>
+  </defs>
+
+  <!-- left: eta small (redundant) -->
+  <text class="ttl" x="40" y="34">η が小さい（相方が冗長）</text>
+  <text class="sm" x="40" y="54">2匹がほぼ同じ向き → 引き離せていない</text>
+  <line class="ax" x1="120" y1="240" x2="120" y2="90"/>
+  <line class="ax" x1="60" y1="240" x2="300" y2="240"/>
+  <text class="lab" x="118" y="256" text-anchor="middle">O</text>
+  <!-- v1, v2 nearly parallel -->
+  <line class="v" x1="120" y1="240" x2="250" y2="120"/>
+  <line class="v" x1="120" y1="240" x2="270" y2="140"/>
+  <text class="lab" x="256" y="116">v1</text>
+  <text class="lab" x="278" y="140">v2</text>
+  <!-- difference small -->
+  <line class="d" x1="250" y1="120" x2="270" y2="140"/>
+  <text class="sm" x="252" y="170" fill="#e07b00">v1−v2 が短い</text>
+
+  <!-- right: eta large (wide) -->
+  <text class="ttl" x="360" y="34">η が大きい（広く張る）</text>
+  <text class="sm" x="360" y="54">2匹が反対向き → 最大に引き離す</text>
+  <line class="ax" x1="450" y1="240" x2="450" y2="90"/>
+  <line class="ax" x1="360" y1="240" x2="620" y2="240"/>
+  <text class="lab" x="448" y="256" text-anchor="middle">O</text>
+  <!-- v1 up-right, v2 up-left (wide) -->
+  <line class="v" x1="450" y1="240" x2="560" y2="120"/>
+  <line class="v" x1="450" y1="240" x2="370" y2="120"/>
+  <text class="lab" x="566" y="116">v1</text>
+  <text class="lab" x="352" y="116">v2</text>
+  <!-- difference large -->
+  <line class="d" x1="560" y1="120" x2="370" y2="120"/>
+  <text class="sm" x="430" y="108" fill="#e07b00" text-anchor="middle">v1−v2 が長い</text>
+</svg>
