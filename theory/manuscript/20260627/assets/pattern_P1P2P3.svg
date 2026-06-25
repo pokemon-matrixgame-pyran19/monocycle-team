@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="340" viewBox="0 0 640 340" font-family="sans-serif">
+  <style>
+    .axis{stroke:#333;stroke-width:1.5}
+    .igam{stroke:#1f6fd6;stroke-width:7;stroke-linecap:round}
+    .idel{stroke:#e07b00;stroke-width:7;stroke-linecap:round}
+    .win{fill:#bdbdbd;opacity:.45}
+    .lab{font-size:13px;fill:#333}
+    .ttl{font-size:15px;font-weight:bold;fill:#222}
+    .sm{font-size:11px;fill:#666}
+    .leg{font-size:12px}
+  </style>
+
+  <!-- legend -->
+  <line class="igam" x1="360" y1="22" x2="392" y2="22"/>
+  <text class="leg" x="398" y="26">自分 I_γ=(γ1,γ2)</text>
+  <line class="idel" x1="360" y1="42" x2="392" y2="42"/>
+  <text class="leg" x="398" y="46">相手 Ĩ_δ=(π−δ4,π−δ3)</text>
+  <rect class="win" x="362" y="56" width="28" height="12"/>
+  <text class="leg" x="398" y="66">窓（2択）= 重なり</text>
+
+  <!-- ===== P1: 離 ===== -->
+  <text class="ttl" x="24" y="74">P1 離</text>
+  <text class="sm" x="24" y="90">窓なし</text>
+  <line class="axis" x1="120" y1="84" x2="620" y2="84"/>
+  <text class="lab" x="112" y="104" text-anchor="end">0</text>
+  <text class="lab" x="628" y="104" text-anchor="end">π</text>
+  <line class="igam" x1="170" y1="74" x2="270" y2="74"/>
+  <line class="idel" x1="400" y1="94" x2="520" y2="94"/>
+
+  <!-- ===== P2: 重 ===== -->
+  <text class="ttl" x="24" y="184">P2 重</text>
+  <text class="sm" x="24" y="200">窓が端で1つ</text>
+  <rect class="win" x="360" y="170" width="60" height="28"/>
+  <line class="axis" x1="120" y1="184" x2="620" y2="184"/>
+  <text class="lab" x="112" y="204" text-anchor="end">0</text>
+  <text class="lab" x="628" y="204" text-anchor="end">π</text>
+  <line class="igam" x1="190" y1="174" x2="420" y2="174"/>
+  <line class="idel" x1="360" y1="194" x2="560" y2="194"/>
+
+  <!-- ===== P3: 包 ===== -->
+  <text class="ttl" x="24" y="294">P3 包</text>
+  <text class="sm" x="24" y="310">細い方まるごと窓</text>
+  <rect class="win" x="320" y="280" width="150" height="28"/>
+  <line class="axis" x1="120" y1="294" x2="620" y2="294"/>
+  <text class="lab" x="112" y="314" text-anchor="end">0</text>
+  <text class="lab" x="628" y="314" text-anchor="end">π</text>
+  <line class="igam" x1="170" y1="284" x2="560" y2="284"/>
+  <line class="idel" x1="320" y1="304" x2="470" y2="304"/>
+</svg>
