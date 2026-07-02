@@ -72,7 +72,7 @@ $$
 a+d-b-c=(v_1-v_2)\times(v_3-v_4)=W.
 $$
 
-パワー項は $a+d$ と $b+c$ で同じ和 $p_1+p_2-p_3-p_4$ を与えて厳密に相殺し、混合戦略の分母は等パワーのときと同一の純幾何量になる（等パワーの言葉では $W=(v_1\times v_2)(v_3\times v_4)\,V_i\times V_j$）。
+パワー項は $a+d$ と $b+c$ で同じ和 $p_1+p_2-p_3-p_4$ を与えて厳密に相殺し、混合戦略の分母は等パワーのときと同一の純幾何量になる（等パワーの言葉では $W=(v_1\times v_2)(v_3\times v_4)\,V_i\times V_j$）。この分母のパワー相殺自体は先行研究（[refs/20250910.md](../../refs/20250910.md)）でも、2択公式を構築の利得に適用する計算の途中で観察されている。
 
 ## 本質的2択の条件 — チーム内パワー差の「窓」
 
@@ -119,7 +119,7 @@ $$
 =-\Delta p_i\,m_j-\Delta p_j\,m_i.
 $$
 
-最後の角括弧は外積の恒等式 $(v_1\times v_3)(v_2\times v_4)-(v_1\times v_4)(v_2\times v_3)=(v_1\times v_2)(v_3\times v_4)$（成分計算で確認できる。[00/team_vector.md](../00-single_compatibility_model/team_vector.md) の $B_{ij}=1/(V_i\times V_j)$ を出すのと同じもの）。まとめて
+最後の角括弧は外積の恒等式 $(v_1\times v_3)(v_2\times v_4)-(v_1\times v_4)(v_2\times v_3)=(v_1\times v_2)(v_3\times v_4)$（成分計算で確認できる。[00/team_vector.md](../00-single_compatibility_model/team_vector.md) の $B_{ij}=1/(V_i\times V_j)$ を出すのと同じもの。先行研究では3ベクトルの巡回恒等式＝プリュッカー関係式を経由して導いている）。まとめて
 
 $$
 ad-bc=(v_1\times v_2)(v_3\times v_4)+\Delta p_i\Delta p_j-\Delta p_i m_j-\Delta p_j m_i
@@ -127,6 +127,8 @@ ad-bc=(v_1\times v_2)(v_3\times v_4)+\Delta p_i\Delta p_j-\Delta p_i m_j-\Delta 
 $$
 
 を $W$ で割って主結果1行目を得る。値は窓の内側で $(\Delta p_i,\Delta p_j)$ の双一次で、パワー差の効き方は**窓の中心からのずれの積**に集約される。
+
+先行研究（[refs/20250910.md](../../refs/20250910.md)）はこの分子を**パワー2次の項（$\Delta p_i\Delta p_j$ に当たる項）を落とす近似**で扱い、残る1次の寄与を構築レベルの補正ベクトル（記事中の $U$）として整理している。上の表式は2次まで込みの厳密形であり、1次で切れば先行研究の近似に戻る。$U$ との対応は correction_vector.md（未着手）で扱う。
 
 **パワー差の効きは最大 1/2**：窓の内側では $\left|\dfrac{\partial g}{\partial \Delta p_i}\right|=\dfrac{|\Delta p_j-m_j|}{|W|}<\dfrac{1}{2}$（$\Delta p_j$ も同様）。チーム内パワー差 1 点で動く値は高々 $\frac12$ 点であり、係数 1 で素通しされる $P$ と対照的。パワーと相性の交換レート（発展の問い）の出発点になる。
 
